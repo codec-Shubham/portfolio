@@ -8,7 +8,7 @@ trigger:
 - master
 
 pool:
-  vmImage: ubuntu-latest
+  name: xs-host603-038
 
 steps:
 - task: ArchiveFiles@2
