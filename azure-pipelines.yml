@@ -16,6 +16,10 @@ steps:
     rootFolderOrFile: '$(build.sourcesDirectory)'
     includeRootFolder: false
 - task: PublishBuildArtifacts@1
+  inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop'
+        publishLocation: 'Container'
 
 - task: Docker@2
   inputs:
@@ -23,4 +27,4 @@ steps:
     repository: 'shubhamdev2001/azuredevops'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
-    
+  
