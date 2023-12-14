@@ -16,9 +16,11 @@ steps:
     rootFolderOrFile: '$(build.sourcesDirectory)'
     includeRootFolder: false
 - task: PublishBuildArtifacts@1
+
 - task: Docker@2
   inputs:
     containerRegistry: 'Dockerhub'
-    repository: 'AzureDevops'
+    repository: 'shubhamdev2001/azuredevops'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
+    
