@@ -8,7 +8,7 @@ trigger:
 - master
 
 pool:
-  name: xs-host603-038
+  name: default
 
 steps:
 - task: ArchiveFiles@2
