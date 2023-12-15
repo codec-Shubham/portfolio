@@ -30,5 +30,5 @@ steps:
   displayName: 'Docker Pull'
 
 - script: |
-    docker run -d -p 8080:80 shubhamdev2001/my-portfolio:latest
+    docker run -d -p 8083:80 shubhamdev2001/my-portfolio:latest
   displayName: 'Docker Run'
