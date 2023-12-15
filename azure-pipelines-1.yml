@@ -32,6 +32,13 @@ stages:
     - script: |
         docker run -d -p 8087:80 shubhamdev2001/my-portfolio:latest
       displayName: 'Docker Run'
+    
+- stage: Review
+  jobs:
+  - job: Review
+    pool:
+       name: default
+    steps:
     - script: |
         docker ps
       displayName: 'Containers Started'   
