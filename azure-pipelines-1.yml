@@ -1,0 +1,34 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo 'Building Docker image...'
+  displayName: 'Build Step'
+
+- script: |
+    docker build -t shubhamdev2001/my-portfolio:latest .
+  displayName: 'Docker Build'
+
+- script: |
+    docker login -u shubhamdev2001 -p $DOCKER_PASSWORD
+  displayName: 'Docker Login'
+
+- script: |
+    docker push shubhamdev2001/my-portfolio:latest
+  displayName: 'Docker Push'
+
+- script: |
+    docker pull shubhamdev2001/my-portfolio:latest
+  displayName: 'Docker Pull'
+
+- script: |
+    docker run -d -p 8080:80 shubhamdev2001/my-portfolio:latest
+  displayName: 'Docker Run'
